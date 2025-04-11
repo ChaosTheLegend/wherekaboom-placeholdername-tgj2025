@@ -42,10 +42,16 @@ public class PlayerControls : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         
-        // Rotate the movement vector to match the camera's orientation
-        movement = cameraTransform.TransformDirection(movement);
+        //clamp the movement vector to a maximum length of 1
+        if (movement.sqrMagnitude > 1)
+        {
+            movement.Normalize();
+        }
         
-        _rb.linearVelocity = movement.normalized * speed;
+        // Rotate the movement vector to match the camera's orientation
+        movement = cameraParent.TransformDirection(movement);
+        
+        _rb.linearVelocity = movement * speed;
     }
     
     private void HandlePlayerRotation()
