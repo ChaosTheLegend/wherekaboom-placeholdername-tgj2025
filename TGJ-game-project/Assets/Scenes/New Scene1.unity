@@ -286,7 +286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectLine: {fileID: 4208091291276277795, guid: db1f453704093cc448750e4f57585036, type: 3}
-  emptyObject: {fileID: 3640192662878473567, guid: c93939bf275d82a48be7ee841db21c10, type: 3}
+  level: {fileID: 11400000, guid: 9be95c498726b09448bffe721ae4a232, type: 2}
+  icon: {fileID: 519132841686844018, guid: 36fd7dba8e74bc54b846fa403568bdc6, type: 3}
   onActivated:
     m_PersistentCalls:
       m_Calls: []
