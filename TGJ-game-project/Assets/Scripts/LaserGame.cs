@@ -120,7 +120,7 @@ public class LaserGame : MonoBehaviour
 		gameStarted = false;
 		inerts = new Vector2[level.size, level.size];
 
-		transform.localScale = Vector3.one / level.size;
+		transform.localScale = Vector3.one / (level.size+2);
 
 		ClearGrid();
 
