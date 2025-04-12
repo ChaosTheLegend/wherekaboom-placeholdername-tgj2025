@@ -29,6 +29,18 @@ public class LaserLevel : ScriptableObject
 		}
 	}
 
+
+	[Button]
+	private void Shuffle()
+	{
+		for (int i = 0; i < laserCards.Length; i++)
+		{
+			int randomIndex = Random.Range(0, laserCards.Length);
+			(laserCards[i], laserCards[randomIndex]) = (laserCards[randomIndex], laserCards[i]);
+		}
+	}
+	
+	
 	[ShowInInspector]
 	public LaserCardComponent[,]
 	LaserCards

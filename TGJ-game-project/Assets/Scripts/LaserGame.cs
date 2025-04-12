@@ -10,7 +10,10 @@ public class LaserGame : MonoBehaviour
 {
 	[SerializeField] private LineAnimator effectLine;
 	[SerializeField] private Transform emptyObject;
-
+	[SerializeField] private LaserLevel level;
+	
+	private bool gameStarted = false;
+	
 	public UnityEvent<int> onActivated;
 	public UnityEvent<int> onDeactivated;
 	private bool[] isActive;
@@ -18,7 +21,7 @@ public class LaserGame : MonoBehaviour
 	private List<LineAnimator> effects;
 	private LaserCardComponent[,] laserCards = null;
 	private Vector2[,] inerts;
-	private LaserLevel level;
+	
 	private Transform[] controlPositions;
 
 	private bool[,] used;
@@ -40,6 +43,7 @@ public class LaserGame : MonoBehaviour
 
 	private void Update()
 	{
+		if (!gameStarted) return;
 		if (level == null) return;
 
 		for (var x = 0; x < level.size; x++)
@@ -90,10 +94,9 @@ public class LaserGame : MonoBehaviour
 	}
 
 	[Button]
-	public void CreateLevel(LaserLevel level)
+	public void CreateLevel()
 	{
-		this.level = level;
-
+		gameStarted = false;
 		inerts = new Vector2[level.size, level.size];
 
 		transform.localScale = Vector3.one / level.size;
@@ -131,6 +134,8 @@ public class LaserGame : MonoBehaviour
 
 
 		CreateLaserPositions();
+		
+		gameStarted = true;
 	}
 
 	private void CreateLaserPositions()
