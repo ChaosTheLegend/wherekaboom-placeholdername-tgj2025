@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8673711566807163011}
   - component: {fileID: -2226943660872771912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 3419719808335912752}
   - component: {fileID: 4301665924837243009}
   - component: {fileID: 1543448994505273388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2376101659300010657}
   - component: {fileID: 1111083258170791927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
