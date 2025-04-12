@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,11 @@ using UnityEngine.UIElements;
 public class LaserGame : MonoBehaviour
 {
 	[SerializeField] private LineAnimator effectLine;
-	[SerializeField] private Transform emptyObject;
 	[SerializeField] private LaserLevel level;
-	
+	[SerializeField] private Transform icon;
+
 	private bool gameStarted = false;
-	
+
 	public UnityEvent<int> onActivated;
 	public UnityEvent<int> onDeactivated;
 	private bool[] isActive;
@@ -21,7 +22,7 @@ public class LaserGame : MonoBehaviour
 	private List<LineAnimator> effects;
 	private LaserCardComponent[,] laserCards = null;
 	private Vector2[,] inerts;
-	
+
 	private Transform[] controlPositions;
 
 	private bool[,] used;
@@ -89,8 +90,28 @@ public class LaserGame : MonoBehaviour
 		laserCards[newPos.x, newPos.y] = temp;
 		laserCards[oldPos.x, oldPos.y].position = oldPos;
 		laserCards[newPos.x, newPos.y].position = newPos;
+	}
 
+	private void OnDraggUp(bool value)
+	{
+		if (value) return;
 		CreateLaserPositions();
+	}
+	private void OnDraggDown(bool value)
+	{
+		if (!value) return;
+
+		for (int i = 0; i < controlPositions.Length - 1; i++)
+		{
+			controlPositions[i].GetComponent<Renderer>().material.SetFloat("_Power", 0);
+			controlPositions[i].GetComponent<Renderer>().material.DOKill();
+
+		}
+
+		if (effects != null)
+			for (int i = 0; i < effects.Count; i++)
+				if (effects[i] != null)
+					Destroy(effects[i].gameObject);
 	}
 
 	[Button]
@@ -111,6 +132,8 @@ public class LaserGame : MonoBehaviour
 				laserCards[i, j] = Instantiate(level.LaserCards[i, level.size - 1 - j], transform);
 				laserCards[i, j].position = new Vector2Int(i, j);
 				laserCards[i, j].OnCardMoved += ChangeCards;
+				laserCards[i, j].dragg += OnDraggUp;
+				laserCards[i, j].dragg += OnDraggDown;
 			}
 		}
 
@@ -126,25 +149,20 @@ public class LaserGame : MonoBehaviour
 		controlPositions = new Transform[level.ends.Length + 1];
 		for (int i = 0; i < level.ends.Length; i++)
 		{
-			controlPositions[i] = Instantiate(emptyObject, transform);
+			controlPositions[i] = Instantiate(icon, transform);
+			controlPositions[i].GetComponent<Renderer>().material.SetTexture("_Icon", level.endIcons[i]);
 			controlPositions[i].localPosition = new Vector2(level.ends[i].x, level.ends[i].y) + Vector2.one / 2;
 		}
-		controlPositions[level.ends.Length] = Instantiate(emptyObject, transform);
+		controlPositions[level.ends.Length] = Instantiate(icon, transform);
+		controlPositions[level.ends.Length].GetComponent<Renderer>().material.SetTexture("_Icon", level.startIcon);
+		controlPositions[level.ends.Length].GetComponent<Renderer>().material.DOFloat(1.5f, "_Power", 1f);
 		controlPositions[level.ends.Length].localPosition = new Vector2(level.start.x, level.start.y) + Vector2.one / 2;
 
-
-		CreateLaserPositions();
-		
 		gameStarted = true;
 	}
 
 	private void CreateLaserPositions()
 	{
-		if (effects != null)
-			for (int i = 0; i < effects.Count; i++)
-				if (effects[i] != null)
-					Destroy(effects[i].gameObject);
-
 		effects = new List<LineAnimator>();
 
 		var startMove =
@@ -224,6 +242,9 @@ public class LaserGame : MonoBehaviour
 		if (controlPositions.Contains(currentTransform))
 		{
 			isActive[Array.IndexOf(controlPositions, currentTransform)] = true;
+
+			controlPositions[Array.IndexOf(controlPositions, currentTransform)].GetComponent<Renderer>().material.DOFloat(1.5f, "_Power", 1f).SetDelay(delay);
+
 			return;
 		}
 

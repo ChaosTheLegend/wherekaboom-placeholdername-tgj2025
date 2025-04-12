@@ -5,7 +5,9 @@ using UnityEngine;
 public class LaserLevel : ScriptableObject
 {
 	public Vector2Int start;
+	public Texture2D startIcon;
 	public Vector2Int[] ends;
+	public Texture2D[] endIcons;
 
 	[HideInInspector]
 	public int size = 3;
@@ -39,8 +41,8 @@ public class LaserLevel : ScriptableObject
 			(laserCards[i], laserCards[randomIndex]) = (laserCards[randomIndex], laserCards[i]);
 		}
 	}
-	
-	
+
+
 	[ShowInInspector]
 	public LaserCardComponent[,]
 	LaserCards

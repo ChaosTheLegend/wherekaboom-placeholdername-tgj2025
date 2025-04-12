@@ -10,7 +10,8 @@ public class LaserCardComponent : MonoBehaviour
 	/// <summary>
 	/// old position , new position
 	/// </summary>
-	public Action<Vector2Int, Vector2Int> OnCardMoved { get; set; }
+	public Action<Vector2Int, Vector2Int> OnCardMoved;
+	public Action<bool> dragg;
 	[SerializeField] private Renderer renderer;
 	[SerializeField] private Collider collider;
 
@@ -61,6 +62,7 @@ public class LaserCardComponent : MonoBehaviour
 				dragOffset = hit.point - transform.position;
 				renderer.sortingOrder++;
 				transform.DOScale(0.9f, 0.2f).SetEase(Ease.OutBack);
+				dragg?.Invoke(true);
 			}
 		}
 
@@ -83,6 +85,7 @@ public class LaserCardComponent : MonoBehaviour
 			isDragging = false;
 			renderer.sortingOrder--;
 			transform.DOScale(0.8f, 0.2f).SetEase(Ease.OutBack);
+			dragg?.Invoke(false);
 		}
 	}
 }
