@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     private Rigidbody _rb;
+    private CharacterController _controller;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -17,6 +18,7 @@ public class PlayerControls : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _controller = GetComponent<CharacterController>();
         //hide mouse
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -25,7 +27,7 @@ public class PlayerControls : MonoBehaviour
     {
         
         HandlePlayerRotation();
-        HandlePlayerMovement();
+        //HandlePlayerMovement();
         
         // unlock mouse when escape is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -51,7 +53,8 @@ public class PlayerControls : MonoBehaviour
         // Rotate the movement vector to match the camera's orientation
         movement = cameraParent.TransformDirection(movement);
         
-        _rb.linearVelocity = movement * speed;
+        // Apply the movement vector to the character controller
+        _controller.Move(movement * speed * Time.deltaTime);
     }
     
     private void HandlePlayerRotation()
