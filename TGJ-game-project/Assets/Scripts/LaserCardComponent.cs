@@ -6,7 +6,7 @@ public class LaserCardComponent : MonoBehaviour
 {
 	public cardType type;
 	public bool isDragging = false;
-	private Vector2 dragOffset;
+	private Vector3 dragOffset;
 	/// <summary>
 	/// old position , new position
 	/// </summary>
