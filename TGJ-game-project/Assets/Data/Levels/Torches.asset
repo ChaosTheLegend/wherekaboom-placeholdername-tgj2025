@@ -22,12 +22,12 @@ MonoBehaviour:
   - {x: 5, y: 3}
   - {x: 5, y: 1}
   endIcons:
-  - {fileID: 2800000, guid: 476ec55a5e90aff4fb67ef26bbcadab1, type: 3}
-  - {fileID: 2800000, guid: 476ec55a5e90aff4fb67ef26bbcadab1, type: 3}
-  - {fileID: 2800000, guid: 476ec55a5e90aff4fb67ef26bbcadab1, type: 3}
-  - {fileID: 2800000, guid: 476ec55a5e90aff4fb67ef26bbcadab1, type: 3}
-  - {fileID: 2800000, guid: 476ec55a5e90aff4fb67ef26bbcadab1, type: 3}
-  - {fileID: 2800000, guid: 476ec55a5e90aff4fb67ef26bbcadab1, type: 3}
+  - {fileID: 2800000, guid: f1ddb8a55457f0c4eabe0f9d409c5a43, type: 3}
+  - {fileID: 2800000, guid: 141c6539e4b4b104d9449f6135cdc4be, type: 3}
+  - {fileID: 2800000, guid: 9f7d42874eab4d74e9fde78ce7c9c8f5, type: 3}
+  - {fileID: 2800000, guid: 316cf263e9ac1cd4cb23938a1e8bff2c, type: 3}
+  - {fileID: 2800000, guid: b3440d5080b02014a97762ea67637980, type: 3}
+  - {fileID: 2800000, guid: b75b4f915a10ab34fa23821ee5a5ec10, type: 3}
   size: 5
   laserCards:
   - {fileID: -2226943660872771912, guid: a7e16735251df394f915ed05bda6c72f, type: 3}

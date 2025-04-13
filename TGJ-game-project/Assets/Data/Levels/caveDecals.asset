@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab57ba9aa127eb42b65791790000c23, type: 3}
+  m_Name: caveDecals
+  m_EditorClassIdentifier: 
+  start: {x: 1, y: -1}
+  startIcon: {fileID: 2800000, guid: b3440d5080b02014a97762ea67637980, type: 3}
+  ends:
+  - {x: -1, y: 1}
+  - {x: 1, y: 4}
+  - {x: 4, y: 2}
+  endIcons:
+  - {fileID: 2800000, guid: 141c6539e4b4b104d9449f6135cdc4be, type: 3}
+  - {fileID: 2800000, guid: 9f7d42874eab4d74e9fde78ce7c9c8f5, type: 3}
+  - {fileID: 2800000, guid: b75b4f915a10ab34fa23821ee5a5ec10, type: 3}
+  size: 4
+  laserCards:
+  - {fileID: -2226943660872771912, guid: e0819deafdda29448920aa9fdeb2bc3a, type: 3}
+  - {fileID: -2226943660872771912, guid: e762135089038204097f37077b447fe1, type: 3}
+  - {fileID: -2226943660872771912, guid: c64bea427aaec1048918100b251cbe19, type: 3}
+  - {fileID: -2226943660872771912, guid: c35d40d00e8102d41ad7ee4114f762ca, type: 3}
+  - {fileID: -2226943660872771912, guid: 4c4076a007c62a64f8fbeae1752460f1, type: 3}
+  - {fileID: -2226943660872771912, guid: e762135089038204097f37077b447fe1, type: 3}
+  - {fileID: -2226943660872771912, guid: 5c1d15f89112b3844a3428a8c3379083, type: 3}
+  - {fileID: -2226943660872771912, guid: 9e8c9b2893674154ca7021d00fadf15c, type: 3}
+  - {fileID: -2226943660872771912, guid: a7e16735251df394f915ed05bda6c72f, type: 3}
+  - {fileID: -2226943660872771912, guid: 5c1d15f89112b3844a3428a8c3379083, type: 3}
+  - {fileID: -2226943660872771912, guid: f3aa956a99a91f045833f2e746f73205, type: 3}
+  - {fileID: -2226943660872771912, guid: e762135089038204097f37077b447fe1, type: 3}
+  - {fileID: -2226943660872771912, guid: 77aa988fb48252e44adebc312e86d5e7, type: 3}
+  - {fileID: -2226943660872771912, guid: 9e8c9b2893674154ca7021d00fadf15c, type: 3}
+  - {fileID: -2226943660872771912, guid: 4c4076a007c62a64f8fbeae1752460f1, type: 3}
+  - {fileID: -2226943660872771912, guid: c35d40d00e8102d41ad7ee4114f762ca, type: 3}

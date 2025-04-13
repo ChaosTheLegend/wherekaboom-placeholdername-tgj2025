@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class CaveEntranceController : MonoBehaviour
@@ -8,6 +9,7 @@ public class CaveEntranceController : MonoBehaviour
    
     private bool isOpen = false; // Flag to check if the cave entrance is open
     
+    [Button]
     public void OpenCaveEntrance()
     {
         if(isOpen) return;
