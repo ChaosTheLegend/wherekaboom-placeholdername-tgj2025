@@ -12,7 +12,7 @@ public class TorchController : MonoBehaviour
     public UnityEvent onAllTorchesActivated; // Event to trigger when all torches are deactivated
     
     [SerializeField]
-    private List<GameObject> torchObjects; // List of torch objects to be controlled
+    private List<TorchAnimator> torches; // List of torch objects to be controlled
     
     private List<bool> torchStates; // List to keep track of the state of each torch
 
@@ -21,21 +21,19 @@ public class TorchController : MonoBehaviour
     private void Awake()
     {
         torchStates = new List<bool>();
-        for (int i = 0; i < torchObjects.Count; i++)
+        foreach (var t in torches)
         {
             torchStates.Add(false); // Initialize all torches to inactive state
-            torchObjects[i].SetActive(false); // Ensure all torches are initially deactivated
+            t.DeactivateTorch();
         }
-        
-        
     }
 
     public void DeactivateTorch(int index)
     {
         torchStates[index] = false; // Update the state to false
-        if (index >= 0 && index < torchObjects.Count)
+        if (index >= 0 && index < torches.Count)
         {
-            torchObjects[index].SetActive(false);
+            torches[index].DeactivateTorch(); // Deactivate the torch
         }
         else
         {
@@ -46,7 +44,7 @@ public class TorchController : MonoBehaviour
     public void ActivateTorch(int index)
     {
         torchStates[index] = true;
-        if (index >= 0 && index < torchObjects.Count)
+        if (index >= 0 && index < torches.Count)
         {
             ActivateTorchesWithDelay(index).Forgor();
         }
@@ -59,7 +57,7 @@ public class TorchController : MonoBehaviour
     private async UniTaskVoid ActivateTorchesWithDelay(int index)
     {
         await UniTask.Delay(TimeSpan.FromSeconds(activationDelay)); // Wait for the specified delay
-        torchObjects[index].SetActive(true);
+        torches[index].ActivateTorch(); // Activate the torch
         CheckAllTorchesAcivated(); // Check if all torches are activated
     }
     
