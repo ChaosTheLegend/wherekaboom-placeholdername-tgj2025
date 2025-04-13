@@ -60,9 +60,10 @@ public class TorchController : MonoBehaviour
     {
         await UniTask.Delay(TimeSpan.FromSeconds(activationDelay)); // Wait for the specified delay
         torchObjects[index].SetActive(true);
+        CheckAllTorchesAcivated(); // Check if all torches are activated
     }
     
-    public void CheckAllTorchesDeactivated()
+    public void CheckAllTorchesAcivated()
     {
         if (torchStates.Any(state => !state))
         {
