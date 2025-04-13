@@ -30,20 +30,14 @@ public class CutSceneAnimator : MonoBehaviour
 	private bool[] isHave;
 
 	[Button]
-	private void SetHave(int id)
+	public void SetHave(int id)
 	{
-		/*if (id < 0 || id >= isHave.Length)
+		if (id < 0 || id >= isHave.Length)
 		{
 			Debug.LogError("Invalid ID: " + id);
 			return;
 		}
-		isHave[id] = true;*/
-
-		//all true
-		for (int i = 0; i < isHave.Length; i++)
-		{
-			isHave[i] = true;
-		}
+		isHave[id] = true;
 	}
 
 	void Start()

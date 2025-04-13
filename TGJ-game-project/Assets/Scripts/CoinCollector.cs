@@ -1,11 +1,25 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class CoinCollector : MonoBehaviour
 {
     [SerializeField]
     private List<bool> coinStates; // List to keep track of the state of each coin
+    [SerializeField]
+    private CutSceneAnimator cutSceneAnimator;
+
+    [Button]
+    private void Sync()
+    {
+        for (var i = 0; i < coinStates.Count; i++)
+        {
+            var coin = coinStates[i];
+            if(!coin) continue;
+            cutSceneAnimator.SetHave(i);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +34,7 @@ public class CoinCollector : MonoBehaviour
             {
                 coinStates[index] = true; // Update the state to true
                 Destroy(other.gameObject); // Destroy the coin object
+                cutSceneAnimator.SetHave(index);
             }
             else
             {
