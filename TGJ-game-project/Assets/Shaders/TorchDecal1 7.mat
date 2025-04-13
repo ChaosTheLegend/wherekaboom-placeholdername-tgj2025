@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TorchDecal1 3
+  m_Name: TorchDecal1 7
   m_Shader: {fileID: -6465566751694194690, guid: cd3da5869fe071c47bac599309c15cc4, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Base_Map:
-        m_Texture: {fileID: 2800000, guid: 316cf263e9ac1cd4cb23938a1e8bff2c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 476ec55a5e90aff4fb67ef26bbcadab1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Normal_Map:
